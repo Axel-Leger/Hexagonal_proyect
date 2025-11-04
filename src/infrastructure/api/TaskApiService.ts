@@ -1,5 +1,5 @@
-import type { Task } from "../../../domain/Task"; 
-import type { TaskRepository } from "../../../domain/TaskRepository";
+import type { Task } from "../../domain/Task";  
+import type { TaskRepository } from "../../domain/TaskRepository"; 
 
 const API_URL = 'http://localhost:3000/tasks';
 

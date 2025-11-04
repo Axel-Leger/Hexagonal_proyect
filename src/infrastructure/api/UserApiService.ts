@@ -1,5 +1,5 @@
-import type { User } from "../../../domain/User"; 
-import type { UserRepository } from "../../../domain/UserRepository";
+import type { User } from "../../domain/User"; 
+import type { UserRepository } from "../../domain/UserRepository"; 
 
 const API_URL = 'http://localhost:3000/users';
 
