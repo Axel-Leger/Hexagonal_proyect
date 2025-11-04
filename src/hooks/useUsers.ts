@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { User } from "../domain/User";
+
+import type { User } from "../domain/User";
 import { UserApiService } from "../infrastructure/api/UserApiService";
 import { GetUsersUseCase } from "../application/users/GetUsersUseCase";
 import { CreateUserUseCase } from "../application/users/CreateUserUseCase";
-import { DeleteUserUseCase } from "../application/users/DeleteUserUseCase";
 
 const userRepo = new UserApiService();
 
@@ -29,11 +29,5 @@ export function useUsers() {
     loadUsers();
   };
 
-  const deleteUser = async (id: string) => {
-    const deleteUseCase = new DeleteUserUseCase(userRepo);
-    await deleteUseCase.execute(id);
-    loadUsers();
-  };
-
-  return { users, loading, createUser, deleteUser };
+  return { users, loading, createUser };
 }

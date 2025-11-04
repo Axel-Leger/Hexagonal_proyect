@@ -8,7 +8,8 @@ export class CreateTaskUseCase {
     this.taskRepo = taskRepo;
   }
 
-  async execute(title: string): Promise<Task> {
-    return this.taskRepo.create({ title, completed: false });
+  // 👇 Acepta el objeto completo (sin id)
+  async execute(task: Omit<Task, "id">): Promise<Task> {
+    return this.taskRepo.create(task);
   }
 }

@@ -1,3 +1,4 @@
+import type React from "react";
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "danger" | "outline";
   children: React.ReactNode;
