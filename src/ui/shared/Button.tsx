@@ -1,0 +1,24 @@
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "primary" | "danger" | "outline";
+  children: React.ReactNode;
+}
+
+export default function Button({
+  variant = "primary",
+  className = "",
+  children,
+  ...props
+}: ButtonProps) {
+  const base = "px-4 py-2 rounded font-medium transition";
+  const variants = {
+    primary: "bg-blue-600 text-white hover:bg-blue-700",
+    danger: "bg-red-600 text-white hover:bg-red-700",
+    outline: "border border-gray-300 text-gray-700 hover:bg-gray-50",
+  };
+
+  return (
+    <button className={`${base} ${variants[variant]} ${className}`} {...props}>
+      {children}
+    </button>
+  );
+}

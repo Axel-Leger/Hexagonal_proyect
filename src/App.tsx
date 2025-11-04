@@ -1,16 +1,7 @@
-import Formulario from "./ui/Formulario"
-import '@fontsource/poppins';
-import Tarea from "./ui/Tarea";
-
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
-
-  return (
-    <main>
-      <Formulario/>
-      <Tarea/>
-    </main>
-  )
+  return <AppRoutes />;
 }
 
-export default App
+export default App;
