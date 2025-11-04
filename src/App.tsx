@@ -1,11 +1,15 @@
+import Formulario from "./ui/Formulario"
+import '@fontsource/poppins';
+import Tarea from "./ui/Tarea";
 
 
 function App() {
 
   return (
-   <div className="">
-    hola mundo
-   </div>
+    <main>
+      <Formulario/>
+      <Tarea/>
+    </main>
   )
 }
 
