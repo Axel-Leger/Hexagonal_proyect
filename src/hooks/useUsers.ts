@@ -7,6 +7,7 @@ import { CreateUserUseCase } from "../application/users/CreateUserUseCase";
 
 const userRepo = new UserApiService();
 
+// nose que es esto y no se para que sirve
 export function useUsers() {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
@@ -23,11 +24,13 @@ export function useUsers() {
     loadUsers();
   }, []);
 
-  const createUser = async (name: string, email: string) => {
+  const createUser = async (name: string, email: string, password: string) => {
     const createUseCase = new CreateUserUseCase(userRepo);
-    await createUseCase.execute(name, email);
+    await createUseCase.execute(name, email, password);
     loadUsers();
   };
 
   return { users, loading, createUser };
 }
+
+
