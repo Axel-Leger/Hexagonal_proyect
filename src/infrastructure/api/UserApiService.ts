@@ -1,41 +1,18 @@
-import type { User } from "../../domain/User"; 
+import type { UserContext } from "../../domain/User"; 
 import type { UserRepository } from "../../domain/UserRepository"; 
 
-const API_URL = 'http://localhost:3000/users';
-
 export class UserApiService implements UserRepository {
-  
-  async getAll(): Promise<User[]> {
-    const res = await fetch(API_URL);
-    return res.json();
-  }
 
-  async create(user: Omit<User, 'id'>): Promise<User> {
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(user),
-    });
-    return res.json();
-  }
+  async getUser(): Promise<UserContext> {
+    const user = localStorage.getItem("user")
 
-  async delete(id: string): Promise<void> {
-    await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
-  }
-
-
-  // esta funcion la hice por si acaso pero no creo que la usemos
-  async updatePassword(id: string, password: string): Promise<User> {
-    const res = await fetch(`${API_URL}/${id}/password`,{
-      method: "PUT",
-      headers:  { 'Content-Type': 'application/json' },
-      body: JSON.stringify({password})
-    })
-
-    if(!res.ok){
-      console.error("Error al actualizar la contraseña");
-      
+    if(!user){
+      throw new Error("No se encontro ningun usuario")
     }
-    return res.json()
+
+    const parsedUser: UserContext = JSON.parse(user)
+
+    return parsedUser
   }
+
 }

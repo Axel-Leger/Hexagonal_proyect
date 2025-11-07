@@ -1,7 +1,5 @@
-import type { User } from "./User";
+import type { UserContext } from "./User";
 
 export interface UserRepository {
-  getAll(): Promise<User[]>;
-  create(user: Omit<User, "id">): Promise<User>;
-  delete(id: string): Promise<void>;
+  getUser(): Promise<UserContext>;
 }

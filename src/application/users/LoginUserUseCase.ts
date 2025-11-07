@@ -1,5 +1,5 @@
 import type { AuthRepository } from "../../domain/AuthRepository";
-import type { User } from "../../domain/User";
+import type { User, UserContext } from "../../domain/User";
 
 export class LoginUserUseCase {
     private authRepo: AuthRepository;
@@ -8,7 +8,7 @@ export class LoginUserUseCase {
         this.authRepo = authRepo
     }
 
-    async execute(user: Omit<User, "id"|"name">): Promise<User>{
+    async execute(user: Omit<User, "id"|"name">): Promise<UserContext>{
         return this.authRepo.login(user)
     }
 }

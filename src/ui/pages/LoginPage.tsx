@@ -3,9 +3,11 @@ import Button from "../shared/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginUserUseCase } from "../../application/users/LoginUserUseCase";
 import { AuthApiService } from "../../infrastructure/api/AuthApiServices";
+import { useAuthStatus } from "../../context/AuthContext";
 
 
 export default function LoginPage() {
+  const {setUser} = useAuthStatus()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,9 +20,8 @@ export default function LoginPage() {
     const loginUser = new LoginUserUseCase(authService)
 
     try {
-        const login = await loginUser.execute({email, password})
-        console.log("Usuario logeado correactamente:", login);
-
+        const userContext = await loginUser.execute({email, password})
+        setUser(userContext)
         navigate("/dashboard")
         
     } catch (Error) {

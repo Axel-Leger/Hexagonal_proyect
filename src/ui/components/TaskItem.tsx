@@ -1,6 +1,6 @@
 "use client";
 
-import type { Task } from "../../domain/Task";
+import type { Task } from "../../domain/Note";
 
 interface TaskItemProps {
   task: Task;
