@@ -98,10 +98,10 @@ export function ActualizarCurso({cursoid}:PutProps){
                        </div>
                    </div>
        
-                   <Button type="submit">
+                   <Button className="bg-red-300 border" type="submit">
                        Actualizar
                    </Button>
-                   <Button variant="danger" type="button" onClick={()=> setAbierto(false)}>
+                   <Button className="bg-red-300 border" type="button" onClick={()=> setAbierto(false)}>
                         Cancelar
                    </Button>
         </form>

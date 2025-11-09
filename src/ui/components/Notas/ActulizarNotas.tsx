@@ -63,22 +63,22 @@ export function ActualizarNotas({id}:ActualizarNotas){
         <>
         <button className="bg-blue-500 px-3 rounded font-semibold" onClick={()=>setAbierto(!abierto)}>Editar</button>
         
-        {abierto && <div className="bg-black/50 backdrop-blur-xs fixed w-full h-full top-0 left-0 z-20"/>}
+        {abierto && <div onClick={()=>setAbierto(false)} className="bg-black/50 backdrop-blur-xs fixed w-full h-full top-0 left-0 z-20"/>}
         
-        <form onSubmit={handlePutNote} className={`px-4 fixed z-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-green-200 py-2 flex flex-col gap-3 
+        <form onSubmit={handlePutNote} className={`px-4 fixed z-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-100  py-2 flex flex-col gap-3 
             ${abierto ? "opacity-100":"opacity-0 pointer-events-none"}`}>
-                   <div className="flex flex-col">
-                       <label>Nombre:</label>
-                       <input 
-                           className="border rounded px-3 py-1"
-                           type="text" 
+                   <div className="flex flex-col gap-1">
+                       <p className="text-lg font-semibold">Anotacion:</p>
+                       <textarea 
+                           className="border h-30 overflow-hidden rounded px-3 py-1"
                            value={annotations}
                            onChange={(e) => setAnnotations(e.target.value)}
                            placeholder="Nombre del curso" />
                    </div>
        
-                    <div className="">
-                       <label>Estado:</label>
+                    <div className="space-y-2">
+                       <p className="text-lg font-semibold">Etiquetas:</p>
+                       
                        <div className="flex flex-wrap gap-2 justify-center [&>button]:border [&>button]:px-3">
                             {tagList.map((tag) => (
                                 <ButtonNote
@@ -91,12 +91,15 @@ export function ActualizarNotas({id}:ActualizarNotas){
                        </div>
                    </div>
        
-                   <Button type="submit">
+                <div className=" space-y-1.5 my-2">
+                   <Button className="w-full py-2 text-lg font-semibold rounded-lg
+                    bg-gradient-to-r from-indigo-400 to-indigo-500 text-white shadow-md hover:from-indigo-500 hover:to-indigo-600 transition-all duration-300 transform hover:scale-[1.02]" type="submit">
                        Actualizar
                    </Button>
-                   <Button variant="danger" type="button" onClick={()=> setAbierto(false)}>
+                   <Button className="bg-slate-300  w-full tracking-wide py-2 text-lg  rounded transform transition-transform duration-300 hover:scale-102" type="button" onClick={()=> setAbierto(false)}>
                         Cancelar
                    </Button>
+                </div>
         </form>
         </>
     )

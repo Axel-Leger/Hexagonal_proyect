@@ -1,9 +1,6 @@
 import { useNoteContext } from "../../../context/NoteContext";
 import type { Busqueda } from "../../../context/typesBusqueda";
-import { ActualizarNotas } from "./ActulizarNotas";
-import ButtonDeleteNote from "./ButtonDeleteNote";
-
-
+import { NotaInd } from "./NotaInd";
 
 
 export default function Notas({busqueda}:Omit<Busqueda, "setBusqueda">) {
@@ -19,35 +16,30 @@ export default function Notas({busqueda}:Omit<Busqueda, "setBusqueda">) {
 
         return coincideAnotacion || coincideTag;
     });
-  
+
+    // arrays
+    const colores = ["bg-yellow-100","bg-blue-100", "bg-green-100", "bg-red-100"];
+    const shadows = ["shadow-yellow-200","shadow-blue-200", "shadow-green-200", "shadow-red-200"];
+
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-wrap p-4 gap-2 ">
         {cargando && <p>Cargando...</p>}
 
         {notasFiltrados.length === 0 
             ? <p>No hay notas</p>
             : 
-             notasFiltrados.map((nota)=>(
-                  <div key={nota.id} className="bg-red-100 rounded">
-                    <p>{nota.annotations}</p>
-                    <div className=" flex gap-2">
-                      {nota.tags.length > 0 
-                        &&
-                        nota.tags.map((tag)=>(
-                          <div key={tag} className="px-2 bg-blue-200">
-                            {tag}
-                          </div>
-                        ))
-                      }
-                    </div>
-                    <div className="">
-                      <ActualizarNotas id={nota.id}/>
-                      <ButtonDeleteNote id={nota.id}/>
-                    </div>
-                  </div>
-                ))
+             notasFiltrados.map((nota, index)=>{
+
+              // cambiar color del bg y sombra
+              const color = colores[index % colores.length];
+              const shadow = shadows[index % shadows.length];
+              
+                return(
+                 <NotaInd nota={nota} color={color} shadow={shadow}/>
+                )
+          })
+                    }
+              </div>
+            );
           }
-    </div>
-  );
-}
