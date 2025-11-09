@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { LogoutUserUseCase } from "../../application/users/LogoutUserUseCase";
-import { AuthApiService } from "../../infrastructure/api/AuthApiServices";
+import { LogoutUserUseCase } from "../../AuthUsers/application/LogoutUserUseCase";
+import { AuthApiService } from "../../AuthUsers/infrastructure/AuthApiServices";
 import { useAuthStatus } from "../../context/AuthContext";
 
 export default function ButtonLogout() {
@@ -10,6 +10,7 @@ export default function ButtonLogout() {
 
     // la funcion
     const logoutService = useMemo(()=> new AuthApiService(), []) 
+    // la ejecucion
     const logoutCase = useMemo(()=>new LogoutUserUseCase(logoutService), [logoutService]) 
 
 

@@ -3,8 +3,8 @@ import {
 import Button from "../shared/Button";
 import { Link, useNavigate } from "react-router-dom";
 
-import { AuthApiService } from "../../infrastructure/api/AuthApiServices";
-import { RegisterUserUseCase } from "../../application/users/RegisterUserUseCase";
+import { AuthApiService } from "../../AuthUsers/infrastructure/AuthApiServices";
+import { RegisterUserUseCase } from "../../AuthUsers/application/RegisterUserUseCase";
 
 
 export default function RegisterPage() {

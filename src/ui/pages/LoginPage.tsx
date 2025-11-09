@@ -1,8 +1,8 @@
 import {useState } from "react";
 import Button from "../shared/Button";
 import { Link, useNavigate } from "react-router-dom";
-import { LoginUserUseCase } from "../../application/users/LoginUserUseCase";
-import { AuthApiService } from "../../infrastructure/api/AuthApiServices";
+import { LoginUserUseCase } from "../../AuthUsers/application/LoginUserUseCase";
+import { AuthApiService } from "../../AuthUsers/infrastructure/AuthApiServices";
 import { useAuthStatus } from "../../context/AuthContext";
 
 
@@ -22,7 +22,7 @@ export default function LoginPage() {
     try {
         const userContext = await loginUser.execute({email, password})
         setUser(userContext)
-        navigate("/dashboard")
+        navigate("/courses")
         
     } catch (Error) {
         console.error(Error);
