@@ -91,13 +91,16 @@ export default function RegisterPage() {
             />
           </div>
 
-          <Button type="submit" className="w-full">
+          <Button 
+            type="submit" 
+            className="bg-indigo-400 w-full py-2 rounded-md text-white hover:bg-indigo-500 hover:scale-102 transition-all duration-300 ease-in-out" 
+            >
             Registrar
           </Button>
         </form>
         <div className="flex mt-4 gap-2">
-          <p className="cursor-pointer">Ya tienes cuenta?</p>
-          <Link to={"/login"} >Iniciar Session</Link>
+          <p >Ya tienes cuenta?</p>
+          <Link to={"/login"}  className="text-indigo-800">Iniciar Session</Link>
         </div>
       </div>
     </div>

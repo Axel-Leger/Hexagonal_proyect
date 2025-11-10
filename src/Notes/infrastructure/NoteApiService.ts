@@ -9,9 +9,7 @@ async getNote(courseId: string): Promise<NoteFront[]> {
   const res = await fetch(`${API_URL}/course/${courseId}`)
 
   const data = await res.json()
-  console.log(data);
   
-
   return data
 }
 

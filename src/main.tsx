@@ -4,12 +4,21 @@ import './index.css'
 import App from './App.tsx'
 import { AuthProvider } from './context/AuthContext.tsx'
 import '@fontsource/poppins'; 
+import { CoursesProvider } from './context/CoursesContext.tsx'
+import { NoteProvider } from './context/NoteContext.tsx'
 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    {/* contexto auth, ususario */}
     <AuthProvider>
-      <App />
+      {/* contexto curso */}
+      <CoursesProvider>
+        {/* contexto notas */}
+        <NoteProvider>
+            <App />
+        </NoteProvider>
+      </CoursesProvider>
     </AuthProvider>
   </StrictMode>,
 )

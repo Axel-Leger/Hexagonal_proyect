@@ -23,7 +23,7 @@ export function AuthProvider({children}: AuthProviderProps){
             try {
                 const currentUser = await getUserCase.execute()
                 setUser(currentUser)
-                console.log("Usuario encontrado",currentUser);
+                console.log("Usuario encontrado");
             } catch (error) {
                 console.log("no se encontro ningun usuarui", error);                
             }            

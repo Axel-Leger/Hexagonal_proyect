@@ -66,7 +66,7 @@ export function ActualizarCurso({cursoid}:PutProps){
 
     return(
         <>
-        <button className="bg-blue-500 px-3 rounded font-semibold" onClick={()=>setAbierto(!abierto)}>Editar</button>
+        <button className="bg-indigo-400 px-3 rounded font-semibold" onClick={()=>setAbierto(!abierto)}>Editar</button>
         
         {abierto && <div className="bg-black/50 backdrop-blur-xs fixed w-full h-full top-0 left-0 z-20"/>}
         

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNoteContext } from "../../../context/NoteContext";
 import type { Busqueda } from "../../../context/typesBusqueda";
 import { NotaInd } from "./NotaInd";
@@ -5,6 +6,8 @@ import { NotaInd } from "./NotaInd";
 
 export default function Notas({busqueda}:Omit<Busqueda, "setBusqueda">) {
   const {notas,cargando} = useNoteContext()
+  const [abierto, setAbierto] = useState<string | null>(null);
+
 
     const notasFiltrados = notas.filter((nota) => {
       const texto = busqueda.toLowerCase();
@@ -23,8 +26,10 @@ export default function Notas({busqueda}:Omit<Busqueda, "setBusqueda">) {
 
 
   return (
-    <div className="flex flex-wrap p-4 gap-2 ">
+    <div className="flex flex-wrap gap-4 ">
         {cargando && <p>Cargando...</p>}
+
+        {abierto && <button onClick={()=> setAbierto(null)} className="bg-black/40 backdrop-blur-xs z-20 fixed w-full h-full top-0 left-0"/>}
 
         {notasFiltrados.length === 0 
             ? <p>No hay notas</p>
@@ -36,7 +41,7 @@ export default function Notas({busqueda}:Omit<Busqueda, "setBusqueda">) {
               const shadow = shadows[index % shadows.length];
               
                 return(
-                 <NotaInd nota={nota} color={color} shadow={shadow}/>
+                 <NotaInd abierto={abierto} setAbierto={setAbierto} nota={nota} color={color} shadow={shadow}/>
                 )
           })
                     }

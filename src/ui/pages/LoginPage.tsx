@@ -71,13 +71,15 @@ export default function LoginPage() {
             />
           </div>
 
-          <Button type="submit" className="w-full">
+          <Button 
+            type="submit" 
+            className="bg-indigo-400 w-full py-2 rounded-md text-white hover:bg-indigo-500 hover:scale-102 transition-all duration-300 ease-in-out"            >
             Iniciar session
           </Button>
         </form>
         <div className="flex mt-4 gap-2">
-          <p className="cursor-pointer">Aun no tienes cuenta?</p>
-          <Link to={"/register"} >Registrate</Link>
+          <p className="">Aun no tienes cuenta?</p>
+          <Link to={"/register"} className="text-indigo-800 " >Registrate</Link>
         </div>
       </div>
     </div>

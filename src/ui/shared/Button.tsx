@@ -1,8 +1,4 @@
 import type React from "react";
-
-// React.ButtonHTMLAttributes<HTMLButtonElement> nos deja usar las funciones 
-// tipicas con el onclic, type, value, etc del button sin tener declarar una 
-// por una, 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
   // React.ReactNode: permite que chuldren pueda ser un: string, componente jsx,
@@ -17,7 +13,7 @@ export default function Button({
 }: ButtonProps) {
   
   return (
-    <button className={`${className}`} {...props}>
+    <button className="w-full text-white mt-1 bg-blue-500 rounded py-1.5 text-lg transition-all duration-300 ease-in-out cursor-pointer hover:scale-101" {...props}>
       {children}
     </button>
   );

@@ -17,6 +17,8 @@ export function Cursos({busqueda}:Omit<Busqueda, "setBusqueda">) {
             return curso.name.toLowerCase().includes(texto)
         });
         
+        const colores = ["bg-emerald-200","bg-indigo-200", "bg-purple-200", "bg-pink-200"];
+
         
     return(
         <div className="flex justify-center lg:justify-start flex-wrap gap-3 p-4">
@@ -27,23 +29,29 @@ export function Cursos({busqueda}:Omit<Busqueda, "setBusqueda">) {
                 ? 
                 <p>No hay cursos</p>
                 :
-                cursosFiltrados.map((curso)=>(
-                    <div key={curso.id} className="w-[300px] h-[200px] grid grid-rows-[1fr_auto]">
-                        
-                        <Link to={`/notas/${curso.id}`} className="flex w-full items-end relative rounded-t bg-blue-300 px-4 py-1">
-                            <h1 className="font-bold text-2xl">{curso.name}</h1>
-                            <IsCompleteCompnent>
-                                <p className="absolute right-4 top-1">{curso.isCompleted === false 
-                                    ? "Incompleto"
-                                    : "Completo" }</p>
-                            </IsCompleteCompnent>
-                        </Link>
-                        <div className=" bg-green-300 flex justify-end px-2 py-1">
-                            <ActualizarCurso cursoid={curso.id}/>
-                            <ButtonDeleteCourse id={curso.id}/>
+                cursosFiltrados.map((curso, index)=>{
+
+                    const color = colores[index % colores.length];
+
+                    return(
+                        <div key={curso.id} className={`w-full md:w-[300px] ${color} h-[200px] shadow rounded grid grid-rows-[1fr_auto]`}>
+                            
+                            <Link to={`/notas/${curso.id}`} className="flex w-full items-end relative rounded-t px-4 py-1">
+                                <h1 className="font-bold text-2xl">{curso.name}</h1>
+                                <IsCompleteCompnent>
+                                    <p className={`absolute right-2 top-2  px-3 rounded text-sm ${curso.isCompleted === false  ? "bg-red-300":" bg-emerald-400"} `}>
+                                        {curso.isCompleted === false 
+                                            ? "Incompleto"
+                                            : "Completo" }
+                                    </p>
+                                </IsCompleteCompnent>
+                            </Link>
+                            <div className="bg-slate-100/40 text-sm gap-2 rounded-b flex justify-end p-2">
+                                <ActualizarCurso cursoid={curso.id}/>
+                                <ButtonDeleteCourse id={curso.id}/>
+                            </div>
                         </div>
-                    </div>
-                ))
+                    )})
             }
         </div>
     )
