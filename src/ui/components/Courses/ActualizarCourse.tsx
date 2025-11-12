@@ -70,7 +70,7 @@ export function ActualizarCurso({cursoid}:PutProps){
         
         {abierto && <div className="bg-black/50 backdrop-blur-xs fixed w-full h-full top-0 left-0 z-20"/>}
         
-        <form onSubmit={handlePutCourse} className={`px-4 fixed z-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-green-200 py-2 flex flex-col gap-3 
+        <form onSubmit={handlePutCourse} className={`px-4 rounded fixed z-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-100 py-2 flex flex-col gap-3 
             ${abierto ? "opacity-100":"opacity-0 pointer-events-none"}`}>
                    <div className="flex flex-col">
                        <label>Nombre:</label>

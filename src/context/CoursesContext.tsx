@@ -85,7 +85,7 @@ export function CoursesProvider({children}: CoursesProviderProps){
     
 
     return(
-        <CourseContext.Provider value={{name, setName, handleCourse, setIsCompleted,isCompleted, cargando, cursos, setResfrecar}}>
+        <CourseContext.Provider value={{name, setName, handleCourse, setIsCompleted, isCompleted, cargando, cursos, setResfrecar}}>
             {children}
         </CourseContext.Provider>
     )

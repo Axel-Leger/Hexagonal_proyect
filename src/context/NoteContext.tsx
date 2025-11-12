@@ -27,9 +27,8 @@ export function NoteProvider({children}: NoteProviderProps){
     const CreateNoteCase = new CreateNoteUseCase(noteservice)
     const GetnoteCase = new GetNoteUseCase(noteservice)
 
-    // FORM NOTAS   
-    
-      const handleSubmit = async (e:React.FormEvent)=>{
+    // FORM NOTAS       
+    const handleSubmit = async (e:React.FormEvent)=>{
         e.preventDefault()
     
         try {
@@ -52,9 +51,7 @@ export function NoteProvider({children}: NoteProviderProps){
             console.error("Error al crear nota");
             
         } 
-      }
-    
-
+    }
 
     // TREAER LISTA DE NOTAS 
     const TraerNotas= async () =>{
@@ -70,7 +67,7 @@ export function NoteProvider({children}: NoteProviderProps){
             }finally{
                 setCargando(false)
             }   
-        }
+    }
 
     
     const tagList = [
@@ -88,7 +85,7 @@ export function NoteProvider({children}: NoteProviderProps){
         "Sql",
         "NoSql",
         "Express",
-      ];
+    ];
     
     
     useEffect(()=>{

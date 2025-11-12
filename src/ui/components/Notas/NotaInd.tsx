@@ -13,7 +13,7 @@ interface NotaIndProps {
 
 export function NotaInd({ nota, color, shadow, abierto, setAbierto }: NotaIndProps) {
 
-    const estaAbierto = abierto === nota.id;
+const estaAbierto = abierto === nota.id;
 
   const handleClick = () => {
      if (!estaAbierto) {
