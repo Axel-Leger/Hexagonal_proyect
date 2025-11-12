@@ -2,7 +2,11 @@ import { createContext, useContext, useEffect, useMemo, useState, type ReactNode
 import { UserApiService } from "../AuthUsers/infrastructure/UserApiService";
 import { GetUserUseCase } from "../AuthUsers/application/GetUsersUseCase";
 import type { UserContext } from "../AuthUsers/domain/User";
-import type { AuthContextType } from "./typesCourse";
+
+interface AuthContextType{
+    user: UserContext | null
+    setUser: React.Dispatch<React.SetStateAction<UserContext | null>>
+}
 
 
 interface AuthProviderProps {

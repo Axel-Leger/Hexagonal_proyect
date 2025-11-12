@@ -56,7 +56,7 @@ const estaAbierto = abierto === nota.id;
     {estaAbierto && 
         <div className=" flex p-2  bg-slate-800/10 justify-end gap-2">
             <ActualizarNotas id={nota.id} />
-            <ButtonDeleteNote abierto={abierto} setAbierto={setAbierto} id={nota.id} />
+            <ButtonDeleteNote setAbierto={setAbierto} id={nota.id} />
         </div>
     }
      

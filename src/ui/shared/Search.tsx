@@ -1,5 +1,8 @@
-import type { Busqueda } from "../../context/typesBusqueda";
 
+export interface Busqueda {
+    busqueda: string;
+    setBusqueda: React.Dispatch<React.SetStateAction<string>>;
+}
 
 export function Search({busqueda, setBusqueda}: Busqueda){
 

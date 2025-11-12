@@ -43,7 +43,9 @@ export function FormNotas() {
         </div>
       </div>
 
-      <Button onClick={handleSubmit}>
+      <Button 
+        variant={["grande", "default"]}
+        onClick={handleSubmit}>
         Enviar
       </Button>
     </form>

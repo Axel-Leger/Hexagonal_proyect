@@ -4,11 +4,30 @@ import CourseApiService from "../Courses/infrastructure/CourseApiService";
 import { CreateCourseUseCase } from "../Courses/application/CreateCoursesUseCase";
 import { GetCourseUseCase } from "../Courses/application/GetCourseUseCase";
 import type { CoursesFront } from "../Courses/domain/Courses";
-import type { CourseContextType } from "./typesCourse";
 
 interface CoursesProviderProps {
     children: ReactNode
 }
+ 
+interface CourseContextType {
+
+    // formulario
+    name: string;
+    setName: React.Dispatch<React.SetStateAction<string>>
+    handleCourse: (e: React.FormEvent) => Promise<void>
+    isCompleted:boolean
+    setIsCompleted: React.Dispatch<React.SetStateAction<boolean>>
+    
+    // listado de cursos
+    cargando:boolean
+    cursos: CoursesFront[]
+
+    
+    // refrescar lista
+    setResfrecar:React.Dispatch<React.SetStateAction<boolean>>
+}
+
+
 
 const CourseContext = createContext<CourseContextType | undefined>(undefined)
 

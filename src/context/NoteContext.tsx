@@ -5,7 +5,25 @@ import { useParams } from "react-router-dom";
 import { NoteApiService } from "../Notes/infrastructure/NoteApiService";
 import { GetNoteUseCase } from "../Notes/application/GetNoteUseCase";
 import { CreateNoteUseCase } from "../Notes/application/CreateNoteUseCase";
-import type { NoteContextType, NoteProviderProps } from "./typesNote";
+
+
+ interface NoteContextType{
+    notas: NoteFront[]
+    cargando:boolean
+    tagList:string[]
+    annotations:string
+    setTags:React.Dispatch<React.SetStateAction<string[]>>
+    tags:string[]
+    setResfrecarNote:React.Dispatch<React.SetStateAction<boolean>>
+    handleSubmit:(e: React.FormEvent) => Promise<void>
+    setAnnotations: React.Dispatch<React.SetStateAction<string>>
+}
+
+ interface NoteProviderProps {
+    children: React.ReactNode
+}
+
+
 
 
 const NoteContext = createContext<NoteContextType | undefined>(undefined)

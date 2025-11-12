@@ -93,10 +93,14 @@ export function ActualizarNotas({id}:ActualizarNotas){
                    </div>
        
                 <div className=" flex  gap-2 my-2">
-                   <Button type="button" onClick={()=>setAbiertoAct(!abiertoAct)} className="w-full py-2  font-semibold rounded bg-red-400 cursor-pointer hover:bg-red-500 transition-all duration-300 transform hover:scale-[1.02]">
+                   <Button 
+                        variant={["pequeño", "danger"]}
+                        type="button" onClick={()=>setAbiertoAct(!abiertoAct)} className="w-full py-2  font-semibold rounded bg-red-400 cursor-pointer hover:bg-red-500 transition-all duration-300 transform hover:scale-[1.02]">
                         Cancelar
                    </Button>
-                   <Button className="w-full py-2  font-semibold rounded bg-indigo-400 cursor-pointer hover:bg-indigo-500 transition-all duration-300 transform hover:scale-[1.02]" type="submit">
+                   <Button 
+                        variant={["pequeño", "default"]}
+                        className="w-full py-2  font-semibold rounded bg-indigo-400 cursor-pointer hover:bg-indigo-500 transition-all duration-300 transform hover:scale-[1.02]" type="submit">
                        Actualizar
                    </Button>
 

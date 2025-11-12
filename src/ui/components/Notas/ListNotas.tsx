@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useNoteContext } from "../../../context/NoteContext";
-import type { Busqueda } from "../../../context/typesBusqueda";
 import { NotaInd } from "./NotaInd";
 
+export interface CursosProps {
+    busqueda: string;
+}
 
-export default function Notas({busqueda}:Omit<Busqueda, "setBusqueda">) {
+
+export default function Notas({busqueda}:CursosProps) {
   const {notas,cargando} = useNoteContext()
   const [abierto, setAbierto] = useState<string | null>(null);
 

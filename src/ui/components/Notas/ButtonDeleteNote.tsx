@@ -5,7 +5,6 @@ import { DeleteNoteUseCase } from "../../../Notes/application/DeleteNoteUseCase"
 
 export interface CourseIdProp{
     id: string  
-    abierto: string | null;
     setAbierto: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
@@ -29,7 +28,7 @@ export default function ButtonDeleteNote({id, setAbierto}:CourseIdProp){
             setAbierto(null)
             setAbrirMensaje(false)
         } catch (error) {
-            console.error("Error al eliminar la nota");
+            console.error("Error al eliminar");
         }
     }
 
